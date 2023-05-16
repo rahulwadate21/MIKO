@@ -25,11 +25,18 @@ public class SQLFileParser {
 
 			File outputFile = new File("output.txt");
 			BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile));
+			String colName = "ID(PK) " + " Name" ;
+			writer.write(colName);
+			writer.newLine();
+			String tl = "------------------" ;
+			writer.write(tl);
+			writer.newLine();
+			
 
 			while (rs.next()) {
 				String column1 = rs.getString("column1");
 				String column2 = rs.getString("column2");
-				String line = column1 + "," + column2;
+				String line = column1 + "      " + column2;
 				writer.write(line);
 				writer.newLine();
 			}
